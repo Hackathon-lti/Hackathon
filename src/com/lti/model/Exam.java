@@ -24,7 +24,7 @@ private int user_choice;
 	@JoinColumn(name="userId")
 	private User user_details;
 	
-	
+	private int score;
 	public Exam() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -54,18 +54,27 @@ public User getUser_details() {
 	public void setUser_details(User user_details) {
 		this.user_details = user_details;
 	}
-public Exam(int exam_id, int user_choice, int user_choice1, User user_details, List<Question> listQuestion) {
+
+	public int getScore() {
+		return score;
+	}
+
+	public void setScore(int score) {
+		this.score = score;
+	}
+	public Exam(int exam_id, int user_choice, User user_details, int score) {
 		super();
 		this.exam_id = exam_id;
 		this.user_choice = user_choice;
-
 		this.user_details = user_details;
-		
+		this.score = score;
 	}
 
 	@Override
 	public String toString() {
-		return "Exam [exam_id=" + exam_id + ", user_choice=" + user_choice + 
-				 ", user_details=" + user_details + " ]";
+		return "Exam [exam_id=" + exam_id + ", user_choice=" + user_choice + ", user_details=" + user_details
+				+ ", score=" + score + "]";
 	}
+
+
 }

@@ -18,22 +18,22 @@ public void setExamdao(IExamDao examdao) {
 }
 
 @Override
-public List<Question> fetchAlljavaQuestion() {
+public List<Question> fetchAlljavaQuestion(int i) {
 	// TODO Auto-generated method stub
 	
-	return this.examdao.fetchAlljavaQuestion();
+	return this.examdao.fetchAlljavaQuestion( i);
 }
 
 @Override
-public List<Question> fetchAllhtmlQuestion() {
+public List<Question> fetchAllhtmlQuestion(int l) {
 	// TODO Auto-generated method stub
-	return null;
+	return this.examdao.fetchAllhtmlQuestion( l);
 }
 
 @Override
-public List<Question> fetchAllsqlQuestion() {
+public List<Question> fetchAllsqlQuestion(int l) {
 	// TODO Auto-generated method stub
-	return null;
+	return this.examdao.fetchAllhtmlQuestion( l);
 }
 
 }

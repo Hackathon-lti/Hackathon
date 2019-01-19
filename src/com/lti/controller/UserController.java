@@ -29,15 +29,9 @@ public class UserController {
 	@Autowired
 	//@Qualifier(value="userService")
 	private IUserService iUserService;
-
-	
 	
 	public void setUserService(IUserService us) {
 		this.iUserService = us;}
-	
-	
-	
-	
 
 	@RequestMapping(value="/registration")
 	public String gotoUserpage(Model model) {
@@ -57,9 +51,7 @@ public class UserController {
 				// new user, add it
 				model1.put("Alert","Thank you for registration");
 			
-				return "exam";
-				
-				
+				return "Studentdashboard";
 				// existing user, call update
 				//this.userService.updateUser(u);
 }
@@ -70,10 +62,16 @@ public class UserController {
 		
 		return "Loginuser";
 	}
-
 	@RequestMapping(value="/Verification")
-	public String LoginValidation(Model model,HttpServletRequest req)
+	public String LoginValidation(Model model,@Valid User u,HttpServletRequest req,HttpSession session)
 	{
+		/*if(u.getUserEmail().equalsIgnoreCase("Admin@gmail.com")&&u.getPassword().equalsIgnoreCase("admin123")) {
+			session.setAttribute("adminuser",u.getUserEmail());
+			session.setAttribute("adminpassword", u.getPassword());
+			return "Addques";
+			
+		}*/
+
 
 		String username=req.getParameter("userName");
 		String password=req.getParameter("password");
@@ -81,26 +79,12 @@ public class UserController {
 		if(iUserService.verifyUser(username, password))
 		{
 			System.out.println("this is password"+password);
-		return "exam";
+		return "Studentdashboard";
 		}
-		return "Loginuser";
-	}
-	
-	/*@RequestMapping(value="/Verification")
-	public String LoginValidation1(Model model,HttpServletRequest req)
-	{
+		
+		return "Loginuser";}
 
-		String username=req.getParameter("admin@123.com");
-		String password=req.getParameter("admin123");
 	
-		if(iUserService.verifyUser(username, password))
-		{
-			System.out.println("this is password"+password);
-		return "post";
-		}
-		return "exam";
-	}
-	*/
 	
 	@RequestMapping("/logout")
 	public String logout(HttpSession session ) {

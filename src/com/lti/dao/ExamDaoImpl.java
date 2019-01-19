@@ -26,17 +26,15 @@ public class ExamDaoImpl implements IExamDao{
 	}
 	int i=0;
 	@Override
-	   public List<Question> fetchAlljavaQuestion() {
+	   public List<Question> fetchAlljavaQuestion(int i) {
 		
 		Question q=new Question();
-		if(i == 0) {
+		if(q.lev==3) {
 			System.out.println("1");
 			Session session= sessionFactory.openSession(); // creating session
 			Transaction tcx=session.beginTransaction();
-			String query="From Question where topic='jav1' and lev =1 ";
-			
+			String query="From Question where topic='jav1' and lev = 3 ";
 		Query query1 = session.createQuery(query);
-	
 			List<Question> l = query1.list();
 		tcx.commit();
 		session.close();
@@ -46,90 +44,87 @@ public class ExamDaoImpl implements IExamDao{
 		else if(q.lev==2) {
 			Session session= sessionFactory.openSession();// creating session
 			Transaction tcx=session.beginTransaction();
-			List<Question> l = session.createSQLQuery("Select question,option1,option2,option3,option4 from Qusetionwhere  topic =: javas and lev =: 2  ").list();
-			session.save(l);
+			List<Question> l = session.createQuery("From Question where  topic='jav1' and lev = 2  ").list();
 			tcx.commit();
+			session.close();
 			return l;
 		}
-		else if(q.lev==3) {
+		else  {
 			Session session= sessionFactory.openSession(); // creating session
 			Transaction tcx=session.beginTransaction();
-			List<Question> l = session.createSQLQuery("Select question,option1,option2,option3,option4 from Qusetion where  topic =: java and lev =: 3 ").list();
-			session.save(l);
+			List<Question> l = session.createQuery(" From Question where  topic='jav1' and lev =1 ").list();
 			tcx.commit();
+			session.close();
 			return l;
 		}
              
-		return null;
+		
 		}
 
 	@Override
-	public List<Question> fetchAllhtmlQuestion() {
+	public List<Question> fetchAllhtmlQuestion(int i) {
 		
 		Question q=new Question();
 		Exam e=new Exam();
-		if(e.getExam_id() != 0) {
+		q.setLev(i);
+		if(q.lev == 3) {
 			Session session= sessionFactory.openSession();// creating session
 			Transaction tcx=session.beginTransaction();
-			String query="Select question,option1.option2,option3,option4 from Qusetion where  topic =: html and lev =: 1 ";
-		List<Question> l = session.createSQLQuery(query).list();
-		session.save(l);
+			String query="from Question where  topic ='html' and lev = 3";
+		List<Question> l = session.createQuery(query).list();
 		tcx.commit();
+		session.close();
 		return l;}
 		else if(q.lev==2) { 
 			Session session= sessionFactory.openSession(); // creating session
 			Transaction tcx=session.beginTransaction();
-			List<Question> l = session.createSQLQuery("Select question,option1,option2,option3,option4 from Qusetionwhere  topic =: html and lev =: 2  ").list();
+			List<Question> l = session.createQuery("From Question where  topic ='html' and lev =2  ").list();
 			session.save(l);
 			tcx.commit();
 			return l;
 		}
-		else if(q.lev==3) {
+		else  {
 			Session session= sessionFactory.openSession(); // creating session
 			Transaction tcx=session.beginTransaction();
-			List<Question> l = session.createSQLQuery("Select question,option1,option2,option3,option4 from Qusetion where  topic =: html and lev =: 3 ").list();
-			session.save(l);
+			List<Question> l = session.createQuery("From Question where  topic ='html' and lev =1 ").list();
 			tcx.commit();
+			session.close();
 			return l;
 		}
-		return null;
+	
 	}
 
 	@Override
-	public List<Question> fetchAllsqlQuestion() {
+	public List<Question> fetchAllsqlQuestion(int i) {
 		
 		Question q=new Question();
 		Exam e=new Exam();
-		if(e.getExam_id() != 0) {
+		if(q.lev==3) {
 			Session session= sessionFactory.openSession(); // creating session
 			Transaction tcx=session.beginTransaction();
-			
-			
-			String query="Select question,option1,option2,option3,option4 From Qusetion where  topic =: sql and lev=:1 ";
+			String query=" From Question where  topic ='sql'and lev=3 ";
 
-			List<Question> l = session.createSQLQuery(query).list();
-
-		session.save(l);
+			List<Question> l = session.createQuery(query).list();
 		tcx.commit();
-		
+		session.close();
 		return l;}
 		else if(q.lev==2) { 
 			Session session= sessionFactory.openSession(); // creating session
 			Transaction tcx=session.beginTransaction();
-			List<Question> l = session.createSQLQuery("Select question,option1,option2,option3,option4 from Qusetionwhere  topic =: sql and lev =: 2  ").list();
-			session.save(l);
+			List<Question> l = session.createQuery(" from Question where  topic ='sql' and lev = 2  ").list();
 			tcx.commit();
+			session.close();
 			return l;
 		}
-		else if(q.lev==3) {
+		else {
 			Session session= sessionFactory.openSession(); // creating session
 			Transaction tcx=session.beginTransaction();
-			List<Question> l = session.createSQLQuery("Select question,option1,option2,option3,option4 from Qusetion where  topic =: sql and lev =: 3 ").list();
-			session.save(l);
+			List<Question> l = session.createQuery(" from Question where  topic ='sql' and lev = 1 ").list();
 			tcx.commit();
+			session.close();
 			return l;
 		}
-		return null;
+	
 	}
 
 }
