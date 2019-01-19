@@ -1,0 +1,33 @@
+/*!
+ * Start Bootstrap - Round About (https://startbootstrap.com/template-overviews/round-about)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-round-about/blob/master/LICENSE)
+ */
+
+body {
+  padding-top: 54px;
+  background-color: lightblue;
+}
+
+@media (min-width: 992px) {
+  body {
+    padding-top: 56px;
+  
+  }
+}
+.header {
+  border: 4px solid black;
+  padding: 10px ;
+  background-color: rgb(37, 40, 41);
+  color: red;
+  font-family: "Times New Roman", Times, serif;
+
+  font-size: 20px;
+}
+table {
+  border-collapse: collapse;
+  border: 1px solid black;
+}
+table {
+  border-collapse: collapse;
+  border: 1px solid rgb(133, 40, 40);}

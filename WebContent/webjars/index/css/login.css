@@ -1,0 +1,145 @@
+<style>
+:root {
+  --bg-color: #222233;
+  background-image: url("login.jpg");
+
+  --primary-color: #fffacd;
+  --secondary-color: #4ae08c;
+  --valid-color: #a8ffc5;
+  --invalid-color: #ffa8a8;
+  --button-text-color: var(--bg-color);
+  --primary-link-color: #aaccff;
+  --secondary-link-color: var(--secondary-color);
+}
+body,
+html {
+  width: 100vw;
+  font-size: 1rem;
+  line-height: 1.2;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  background: var(--bg-color);
+  color: #fafafa;
+  opacity: 1;
+  transform: scale(1, 1);
+  transition: all 0.3s ease-in-out;
+}
+a {
+  color: var(--primary-link-color);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+a:hover {
+  color: var(--secondary-link-color);
+}
+/* Flex Form */
+.flex-form {
+  display: flex;
+  flex-flow: column;
+  max-width: 500px;
+  width: 100%;
+  padding: 1em;
+  margin: 1em auto;
+}
+.flex-form label {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  position: relative;
+  margin: 1em auto;
+}
+.flex-form input {
+  flex: 1;
+  padding: 15px 10px;
+  border: 2px solid var(--primary-color);
+  margin: 20px 0;
+  border-radius: 3px;
+  background: none;
+  color: #fafafa;
+}
+
+.flex-form label span {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: calc(100% - 34px);
+  padding: 15px;
+  background: var(--bg-color);
+  color: var(--primary-color);
+  transition: all 0.3s ease-in-out;
+  pointer-events: none;
+  transform: translate3d(0, -50%, 0);
+  border: 2px solid var(--primary-color);
+  border-radius: 5px;
+  border-right: 2px solid var(--primary-color);
+}
+
+.flex-form .reactive:focus {
+  outline: none;
+  transition: all 0.3s;
+  border: 2px solid var(--secondary-color);
+}
+
+.flex-form .reactive:valid {
+  border-color: var(--valid-color);
+}
+
+.flex-form .reactive:focus:invalid {
+  border-color: var(--invalid-color);
+}
+
+.flex-form .reactive:valid ~ span {
+  color: var(--bg-color);
+  border-color: var(--valid-color);
+  background: var(--valid-color);
+}
+
+.flex-form .reactive:focus:required:invalid ~ span {
+  color: var(--bg-color);
+  background: var(--invalid-color);
+  border-color: var(--invalid-color);
+}
+
+.flex-form .reactive:not(:placeholder-shown):invalid ~ span {
+    color: var(--bg-color);
+    background-color: var(--primary-color);
+}
+
+.flex-form .reactive:focus ~ span {
+  top: -30px;
+  transform: translate3d(0, 0, 0);
+  border-radius: 3px 3px 0 0;
+}
+
+.flex-form span.expanded {
+  color: var(--bg-color);
+  background: var(--primary-color);
+  top: -30px;
+  transform: translate3d(0, 0, 0);
+  border-radius: 3px 3px 0 0;
+  border-left: 2px solid var(--primary-color);
+  border-right: 2px solid var(--primary-color);
+}
+
+.flex-form input[type="submit"] {
+  background: var(--primary-color);
+  color: var(--button-text-color);
+  margin-left: auto;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  padding: 16px 25px;
+  font-weight: bold;
+}
+.flex-form input[type="submit"]:hover {
+  background: var(--secondary-color);
+}
+.flex-form .form-message {
+  margin-left: auto;
+}
+
+
+
+</style>
