@@ -33,7 +33,7 @@ public List<Question> fetchAllhtmlQuestion(int l) {
 @Override
 public List<Question> fetchAllsqlQuestion(int l) {
 	// TODO Auto-generated method stub
-	return this.examdao.fetchAllhtmlQuestion( l);
+	return this.examdao.fetchAllsqlQuestion( l);
 }
 
 }

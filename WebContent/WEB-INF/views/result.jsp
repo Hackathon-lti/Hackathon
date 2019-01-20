@@ -10,5 +10,8 @@
 Congratulations ur pass
 <%Exam e=new Exam(); %>
 <%=e.getScore() %>
+<% 
+%>
+<a href="level">next level</a>
 </body>
 </html>

@@ -24,13 +24,11 @@ public class ExamDaoImpl implements IExamDao{
 	public void setSessionFactory(SessionFactory sf) {
 		this.sessionFactory = sf;
 	}
-	int i=0;
+
 	@Override
 	   public List<Question> fetchAlljavaQuestion(int i) {
-		
-		Question q=new Question();
-		if(q.lev==3) {
-			System.out.println("1");
+		System.out.println("888");
+		if(i==3) {
 			Session session= sessionFactory.openSession(); // creating session
 			Transaction tcx=session.beginTransaction();
 			String query="From Question where topic='jav1' and lev = 3 ";
@@ -41,7 +39,8 @@ public class ExamDaoImpl implements IExamDao{
 		System.out.println("I am from fetchAll......"+l);
 		return l;
 		}
-		else if(q.lev==2) {
+		else if(i==2) {
+			System.out.println("4121");
 			Session session= sessionFactory.openSession();// creating session
 			Transaction tcx=session.beginTransaction();
 			List<Question> l = session.createQuery("From Question where  topic='jav1' and lev = 2  ").list();
@@ -63,22 +62,18 @@ public class ExamDaoImpl implements IExamDao{
 
 	@Override
 	public List<Question> fetchAllhtmlQuestion(int i) {
-		
-		Question q=new Question();
-		Exam e=new Exam();
-		q.setLev(i);
-		if(q.lev == 3) {
+		if(i == 3) {
 			Session session= sessionFactory.openSession();// creating session
 			Transaction tcx=session.beginTransaction();
-			String query="from Question where  topic ='html' and lev = 3";
+			String query="from Question where  topic ='htmll' and lev = 3";
 		List<Question> l = session.createQuery(query).list();
 		tcx.commit();
 		session.close();
 		return l;}
-		else if(q.lev==2) { 
+		else if(i==2) { 
 			Session session= sessionFactory.openSession(); // creating session
 			Transaction tcx=session.beginTransaction();
-			List<Question> l = session.createQuery("From Question where  topic ='html' and lev =2  ").list();
+			List<Question> l = session.createQuery("From Question where  topic ='htmll' and lev =2  ").list();
 			session.save(l);
 			tcx.commit();
 			return l;
@@ -86,7 +81,7 @@ public class ExamDaoImpl implements IExamDao{
 		else  {
 			Session session= sessionFactory.openSession(); // creating session
 			Transaction tcx=session.beginTransaction();
-			List<Question> l = session.createQuery("From Question where  topic ='html' and lev =1 ").list();
+			List<Question> l = session.createQuery("From Question where  topic ='htmll' and lev =1 ").list();
 			tcx.commit();
 			session.close();
 			return l;
@@ -96,22 +91,19 @@ public class ExamDaoImpl implements IExamDao{
 
 	@Override
 	public List<Question> fetchAllsqlQuestion(int i) {
-		
-		Question q=new Question();
-		Exam e=new Exam();
-		if(q.lev==3) {
+		if(i==3) {
 			Session session= sessionFactory.openSession(); // creating session
 			Transaction tcx=session.beginTransaction();
-			String query=" From Question where  topic ='sql'and lev=3 ";
+			String query=" From Question where  topic ='sqll'and lev=3 ";
 
 			List<Question> l = session.createQuery(query).list();
 		tcx.commit();
 		session.close();
 		return l;}
-		else if(q.lev==2) { 
+		else if(i ==2) { 
 			Session session= sessionFactory.openSession(); // creating session
 			Transaction tcx=session.beginTransaction();
-			List<Question> l = session.createQuery(" from Question where  topic ='sql' and lev = 2  ").list();
+			List<Question> l = session.createQuery(" from Question where  topic ='sqll' and lev = 2  ").list();
 			tcx.commit();
 			session.close();
 			return l;
@@ -119,7 +111,7 @@ public class ExamDaoImpl implements IExamDao{
 		else {
 			Session session= sessionFactory.openSession(); // creating session
 			Transaction tcx=session.beginTransaction();
-			List<Question> l = session.createQuery(" from Question where  topic ='sql' and lev = 1 ").list();
+			List<Question> l = session.createQuery(" from Question where  topic ='sqll' and lev = 1 ").list();
 			tcx.commit();
 			session.close();
 			return l;

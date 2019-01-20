@@ -56,7 +56,7 @@ input[type=submit]:hover {
 	<%Question ques=(Question)session.getAttribute("ques");%>
 		
 
-	<%-- <c:forEach items="${ques}" var="question"> --%>
+	
 		<tr>
 		<th>Question
 		
@@ -72,45 +72,7 @@ input[type=submit]:hover {
 	<button type="submit" value="Next">Next</button> 
 		</center>
 	</form:form>
-<%-- 
-			<tbody>
-			<table style="width:100%">						
-  <tr>
-<th><%List <Question>list1 =  (List<Question>)session.getAttribute("list"); 
-for(int i=0;i<list1.size(); i++){%><tr><% 
-List <Question>newlist =  (List<Question>)session.getAttribute("list"); 
- for(Question q:newlist){
- out.println(q.getQuestion());}%></th>
-  </tr>
-  <tr>
-    <td><input  type="radio" name="gender" value="1"><%
-List <Question>newlist1 =  (List<Question>)session.getAttribute("list"); 
- for(Question q:newlist1){
- 
- out.println(q.getOption1());}%><br>  </td><br>
-    <td><input  type="radio" name="gender" value="2"><%
-List <Question>newlist2 =  (List<Question>)session.getAttribute("list"); 
- for(Question q:newlist2){
- 
- out.println(q.getOption2());}%><br>  </td><br>
-    <td><input   type="radio" name="gender" value="3" ><%
-List <Question>newlist3 =  (List<Question>)session.getAttribute("list"); 
- for(Question q:newlist3){
- 
- out.println(q.getOption3());}%><br>  </td><br>
-    <td><input  type="radio" name="gender" value="4" ><%
-List <Question>newlist4 =  (List<Question>)session.getAttribute("list"); 
- for(Question q:newlist4){
- out.println(q.getOption4());}%><br>  </td>   <tr>
- 
- <%} %>
-  </tr>
-  
-   
-</table>
-	<!-- <button type="submit" value="Next">Next</button> -->
-</table> --%>
-			
+
 
 
 </body>
